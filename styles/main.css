@@ -56,6 +56,8 @@
   --size-700: 3rem;
   --size-800: 4rem;
   --size-900: 5rem;
+
+  --min-padding: var(--size-500);
 }
 
 @media (min-width: 37em) {
@@ -1279,7 +1281,7 @@ select {
 /** Utility - Container **/
 .container {
   --max-width: 1110px;
-  --horizontal-padding: 1rem;
+  --horizontal-padding: var(--min-padding);
 
   width: min(var(--max-width), 100% - (var(--horizontal-padding) * 2));
   margin-inline: auto;
