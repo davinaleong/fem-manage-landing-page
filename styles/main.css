@@ -25,6 +25,7 @@
   --clr-accent-500: hsl(12, 60%, 45%);
   --clr-accent-400: hsl(12, 88%, 59%);
   --clr-accent-300: hsl(13, 100%, 75%);
+  --clr-accent-200: hsl(13, 100%, 85%);
   --clr-accent-100: hsl(13, 100%, 96%);
 
   --clr-neutral-100: hsl(0, 0%, 98%);
@@ -246,6 +247,40 @@ a:where(:hover, :focus) {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
+}
+
+.details-section {
+  counter-reset: h3;
+}
+
+.details-section .container {
+  --horizontal-padding: 0;
+}
+
+.details-section .even-columns div:nth-child(1) {
+  margin-inline: var(--size-500);
+}
+
+.details-section .details-heading::before {
+  counter-increment: h3;
+  content: counter(h3, decimal-leading-zero);
+  display: inline-block;
+  border-radius: 100vmax;
+  padding: var(--size-100) var(--size-400);
+  margin-right: var(--size-200);
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-accent-400);
+}
+
+.details-section .details-heading {
+  border-radius: 100vmax 0 0 100vmax;
+  background-color: var(--clr-accent-100);
+  margin-left: var(--size-500);
+  padding-right: var(--size-500);
+}
+
+.details-section .even-columns div:nth-child(2) p {
+  margin-inline: var(--size-500);
 }
 
 /** General Styling - End **/
