@@ -176,6 +176,7 @@ body {
 a {
   text-decoration: none;
   color: var(--clr-accent-400);
+  transition: color 0.3s ease-in-out;
 }
 
 a:where(:hover, :focus) {
@@ -261,7 +262,7 @@ a:where(:hover, :focus) {
   display: inline-block;
   border-radius: 100vmax;
   padding: var(--size-100) var(--size-400);
-  margin-right: var(--size-200);
+  margin-right: var(--size-300);
   color: var(--clr-neutral-100);
   background-color: var(--clr-accent-400);
   text-align: center;
@@ -269,7 +270,7 @@ a:where(:hover, :focus) {
 }
 
 .details-section .even-columns div:nth-child(2) p {
-  margin-left: calc(var(--size-800) + var(--size-200) + 0.1rem);
+  margin-left: calc(var(--size-800) + var(--size-300) + 0.1rem);
 }
 
 @media (max-width: 50em) {
@@ -321,6 +322,7 @@ a:where(:hover, :focus) {
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 1.125em 1em -1em var(--clr-accent-500);
+  transition: all 0.3s ease-in-out;
 }
 
 .button[data-type="inverted"] {
@@ -412,8 +414,70 @@ a:where(:hover, :focus) {
 }
 
 /** Components - Primary Footer **/
-.primary-footer .even-columns {
-  flex-direction: row-reverse;
+.footer-grid {
+  display: grid;
+  grid-template-areas:
+    "footer-form"
+    "footer-nav"
+    "footer-social"
+    "footer-brand"
+    "footer-copyright";
+  gap: var(--size-600);
+  justify-items: center;
+}
+
+@media (min-width: 50em) {
+  .footer-grid {
+    display: grid;
+    grid-template-areas:
+      "footer-brand footer-nav footer-nav footer-form"
+      "footer-social footer-nav footer-nav footer-copyright";
+  }
+}
+
+.footer-grid .brand {
+  grid-area: footer-brand;
+}
+
+.footer-grid .social-nav {
+  width: 100%;
+  grid-area: footer-social;
+}
+
+.footer-grid .footer-nav {
+  grid-area: footer-nav;
+}
+
+.footer-grid .form {
+  grid-area: footer-form;
+}
+
+.footer-grid .copyright {
+  grid-area: footer-copyright;
+}
+
+.social-nav .nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: min(100%, 50vw);
+  margin-inline: auto;
+  justify-content: space-between;
+}
+
+.footer-nav a {
+  color: var(--clr-neutral-100);
+}
+
+.footer-nav a:where(:hover, :focus) {
+  color: var(--clr-accent-400);
+}
+
+.social-nav a.social-icon path {
+  transition: fill 0.3s ease-in-out;
+}
+
+.social-nav a.social-icon:where(:hover, :focus) path {
+  fill: var(--clr-accent-400);
 }
 
 /** Components - Testimonials **/
