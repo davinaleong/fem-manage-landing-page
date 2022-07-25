@@ -427,17 +427,8 @@ a:where(:hover, :focus) {
     "footer-social"
     "footer-brand"
     "footer-copyright";
-  gap: var(--size-600);
+  gap: var(--size-700);
   justify-items: center;
-}
-
-@media (min-width: 50em) {
-  .footer-grid {
-    display: grid;
-    grid-template-areas:
-      "footer-brand footer-nav footer-nav footer-form"
-      "footer-social footer-nav footer-nav footer-copyright";
-  }
 }
 
 .footer-grid .brand {
@@ -445,7 +436,6 @@ a:where(:hover, :focus) {
 }
 
 .footer-grid .social-nav {
-  width: 100%;
   grid-area: footer-social;
 }
 
@@ -461,6 +451,10 @@ a:where(:hover, :focus) {
   grid-area: footer-copyright;
 }
 
+.social-nav {
+  width: 100%;
+}
+
 .social-nav .nav-list {
   display: flex;
   flex-wrap: wrap;
@@ -469,20 +463,71 @@ a:where(:hover, :focus) {
   justify-content: space-between;
 }
 
-.footer-nav a {
-  color: var(--clr-neutral-100);
-}
-
-.footer-nav a:where(:hover, :focus) {
-  color: var(--clr-accent-400);
-}
-
 .social-nav a.social-icon path {
   transition: fill 0.3s ease-in-out;
 }
 
 .social-nav a.social-icon:where(:hover, :focus) path {
   fill: var(--clr-accent-400);
+}
+
+.footer-nav {
+  width: 100%;
+}
+
+.footer-nav .nav-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: var(--size-400);
+}
+
+.footer-nav .nav-list .nav-item {
+  padding-left: var(--size-500);
+}
+
+.footer-nav .nav-list .nav-item:nth-child(1) {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.footer-nav .nav-list .nav-item:nth-child(2) {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.footer-nav .nav-list .nav-item:nth-child(3) {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.footer-nav .nav-list .nav-item:nth-child(4) {
+  grid-row: 4;
+  grid-column: 1;
+}
+
+.footer-nav .nav-list .nav-item:nth-child(5) {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.footer-nav .nav-list .nav-item:nth-child(6) {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.footer-nav .nav-list .nav-item:nth-child(7) {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.footer-nav a {
+  color: var(--clr-neutral-100);
+}
+
+.footer-nav a:where(:hover, :focus) {
+  color: var(--clr-accent-400);
 }
 
 .footer-form {
@@ -501,6 +546,15 @@ a:where(:hover, :focus) {
 .footer-form .button {
   text-transform: uppercase;
   min-width: var(--footer-form-button-width);
+}
+
+@media (min-width: 50em) {
+  .footer-grid {
+    display: grid;
+    grid-template-areas:
+      "footer-brand footer-nav footer-nav footer-form"
+      "footer-social footer-nav footer-nav footer-copyright";
+  }
 }
 
 /** Components - Testimonials **/
