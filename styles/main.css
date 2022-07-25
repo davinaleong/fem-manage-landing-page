@@ -235,6 +235,19 @@ a:where(:hover, :focus) {
   }
 }
 
+.cta .even-columns {
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 50em) {
+  .cta .even-columns {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
 /** General Styling - End **/
 
 /** Components **/
