@@ -18,3 +18,5 @@ navToggle.addEventListener("click", () => {
   primaryHeader.toggleAttribute("data-overlay");
   primaryNav.toggleAttribute("data-visible");
 });
+
+new Glide(".glide").mount();
