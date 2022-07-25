@@ -253,15 +253,9 @@ a:where(:hover, :focus) {
   counter-reset: h3;
 }
 
-.details-section .container {
-  --horizontal-padding: 0;
-}
-
-.details-section .even-columns div:nth-child(1) {
-  margin-inline: var(--size-500);
-}
-
 .details-section .details-heading::before {
+  --counter-width: calc(var(--size-800));
+
   counter-increment: h3;
   content: counter(h3, decimal-leading-zero);
   display: inline-block;
@@ -270,17 +264,44 @@ a:where(:hover, :focus) {
   margin-right: var(--size-200);
   color: var(--clr-neutral-100);
   background-color: var(--clr-accent-400);
-}
-
-.details-section .details-heading {
-  border-radius: 100vmax 0 0 100vmax;
-  background-color: var(--clr-accent-100);
-  margin-left: var(--size-500);
-  padding-right: var(--size-500);
+  text-align: center;
+  min-width: var(--counter-width);
 }
 
 .details-section .even-columns div:nth-child(2) p {
-  margin-inline: var(--size-500);
+  margin-left: calc(var(--size-800) + var(--size-200) + 0.1rem);
+}
+
+@media (max-width: 50em) {
+  .details-section .container {
+    --horizontal-padding: 0;
+  }
+
+  .details-section .even-columns div:nth-child(1) {
+    margin-inline: var(--size-500);
+  }
+
+  .details-section .details-heading::before {
+    counter-increment: h3;
+    content: counter(h3, decimal-leading-zero);
+    display: inline-block;
+    border-radius: 100vmax;
+    padding: var(--size-100) var(--size-400);
+    margin-right: var(--size-200);
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-accent-400);
+  }
+
+  .details-section .details-heading {
+    border-radius: 100vmax 0 0 100vmax;
+    background-color: var(--clr-accent-100);
+    margin-left: var(--size-500);
+    padding-right: var(--size-500);
+  }
+
+  .details-section .even-columns div:nth-child(2) p {
+    margin-inline: var(--size-500);
+  }
 }
 
 /** General Styling - End **/
