@@ -69,6 +69,9 @@
 
   --container-padding: var(--size-500);
   --column-spacing: var(--size-700);
+
+  --footer-form-button-width: 5.8em;
+  --footer-form-button-height: 3.5em;
 }
 
 @media (min-width: 50em) {
@@ -323,6 +326,8 @@ a:where(:hover, :focus) {
   text-decoration: none;
   box-shadow: 0 1.125em 1em -1em var(--clr-accent-500);
   transition: all 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
 }
 
 .button[data-type="inverted"] {
@@ -478,6 +483,24 @@ a:where(:hover, :focus) {
 
 .social-nav a.social-icon:where(:hover, :focus) path {
   fill: var(--clr-accent-400);
+}
+
+.footer-form {
+  display: flex;
+  gap: var(--size-300);
+  width: 100%;
+  height: var(--footer-form-button-height);
+}
+
+.footer-form .input {
+  border-radius: 100vmax;
+  width: calc(100% - var(--footer-form-button-width) - var(--size-300));
+  padding: 1.5em;
+}
+
+.footer-form .button {
+  text-transform: uppercase;
+  min-width: var(--footer-form-button-width);
 }
 
 /** Components - Testimonials **/
