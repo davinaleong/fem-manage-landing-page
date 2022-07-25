@@ -555,6 +555,22 @@ a:where(:hover, :focus) {
       "footer-brand footer-nav footer-nav footer-form"
       "footer-social footer-nav footer-nav footer-copyright";
   }
+
+  .footer-grid .brand {
+    justify-self: start;
+  }
+
+  .footer-grid .social-nav {
+    justify-self: start;
+  }
+
+  .footer-grid .newsletter-form {
+    justify-self: end;
+  }
+
+  .footer-grid .copyright {
+    justify-self: end;
+  }
 }
 
 /** Components - Testimonials **/
