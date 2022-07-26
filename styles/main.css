@@ -574,13 +574,25 @@ a:where(:hover, :focus) {
 }
 
 /** Components - Testimonials **/
+.carousel {
+  --horizontal-padding: var(--container-padding);
+  padding-inline: var(--horizontal-padding);
+}
+
+@media (min-width: 50em) {
+  .carousel {
+    --horizontal-padding: 0;
+  }
+}
+
 .testimonial-slide {
+  padding-top: 2.5rem;
   position: relative;
 }
 
 .testimonial-image {
   --image-size: 5rem;
-  --top-offset: -2.5rem;
+  --top-offset: 0;
 
   position: absolute;
   top: var(--top-offset);
@@ -590,11 +602,22 @@ a:where(:hover, :focus) {
 }
 
 .testimonial-content {
+  /* --top-spacing: var(--size-800);
+  --other-spacing: var(--size-700); */
+  /* --top-spacing: var(--size-700);
+  --other-spacing: var(--size-400); */
+  --top-spacing: clamp(var(--size-700), 8vw, var(--size-800));
+  --other-spacing: clamp(var(--size-400), 3vw, var(--size-700));
+
   background-color: var(--clr-neutral-100);
-  padding-top: var(--size-800);
-  padding-inline: var(--size-700);
-  padding-bottom: var(--size-700);
+  padding: var(--top-spacing) var(--other-spacing) var(--other-spacing)
+    var(--other-spacing);
   text-align: center;
+}
+
+.glide__arrow {
+  color: var(--clr-accent-400);
+  border-color: var(--clr-accent-400);
 }
 /** Components - End **/
 

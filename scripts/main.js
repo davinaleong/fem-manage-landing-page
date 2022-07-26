@@ -19,4 +19,12 @@ navToggle.addEventListener("click", () => {
   primaryNav.toggleAttribute("data-visible");
 });
 
-new Glide(".glide").mount();
+new Glide(".glide", {
+  startAt: 1,
+  peek: 150,
+  breakpoints: {
+    799: {
+      peek: 0,
+    },
+  },
+}).mount();
