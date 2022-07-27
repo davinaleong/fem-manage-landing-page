@@ -3,6 +3,10 @@
     - Reset
     - General Styling
       - General Styling - Containers
+      - General Styling - Landing Section
+      - General Styling - Details Section
+      - General Styling - Call-to-Action Section
+      - General Styling - Typography
     - Components
       - Components - Buttons
       - Components - Primary Header
@@ -68,7 +72,7 @@
   --size-1100: 7rem;
 
   --container-padding: var(--size-500);
-  --column-spacing: var(--size-700);
+  --column-spacing: var(--size-300);
 
   --footer-form-height: 50px;
   --footer-form-button-width: 5.8em;
@@ -195,6 +199,10 @@ a:where(:hover, :focus) {
   margin-inline: auto;
 }
 
+.flow * + * {
+  margin-top: var(--flow-spacer, 3em);
+}
+
 .even-columns {
   display: grid;
   gap: var(--column-spacing);
@@ -207,6 +215,7 @@ a:where(:hover, :focus) {
   }
 }
 
+/** General Styling - Landing Section **/
 .landing .even-columns > div:nth-child(1) {
   grid-row: 2;
   grid-column: 1;
@@ -240,19 +249,7 @@ a:where(:hover, :focus) {
   }
 }
 
-.cta .even-columns {
-  grid-template-rows: repeat(2, auto);
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 50em) {
-  .cta .even-columns {
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-  }
-}
-
+/** General Styling - Details Section **/
 .details-section {
   counter-reset: h3;
 }
@@ -272,7 +269,7 @@ a:where(:hover, :focus) {
   min-width: var(--counter-width);
 }
 
-.details-section .even-columns div:nth-child(2) p {
+.details-section .even-columns div:nth-child(2) .details-text {
   margin-left: calc(var(--size-800) + var(--size-300) + 0.1rem);
 }
 
@@ -303,9 +300,37 @@ a:where(:hover, :focus) {
     padding-right: var(--size-500);
   }
 
-  .details-section .even-columns div:nth-child(2) p {
+  .details-section .even-columns div:nth-child(2) .details-text {
     margin-inline: var(--size-500);
   }
+}
+
+/** General Styling - Call-to-Action Section **/
+.cta .even-columns {
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 50em) {
+  .cta .even-columns {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
+/** General Styling - Typography **/
+p {
+  opacity: 0.7;
+  max-width: 32ch;
+}
+
+p[data-width="wide"] {
+  max-width: 48ch;
+}
+
+p[data-opacity="opaque"] {
+  opacity: 1;
 }
 
 /** General Styling - End **/
