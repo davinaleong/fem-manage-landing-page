@@ -7,6 +7,7 @@
       - General Styling - Details Section
       - General Styling - Call-to-Action Section
       - General Styling - Typography
+      - General Styling - Decorations
     - Components
       - Components - Buttons
       - Components - Primary Header
@@ -80,7 +81,9 @@
   --footer-form-height: 50px;
   --footer-form-button-width: 5.8em;
 
-  --decoration-size: 56.5em;
+  /* --decoration-size1: 56.5em; */
+  --decoration-size1: 28em;
+  --decoration-size2: 20em;
   --decoration-cta-size: 28em;
 }
 
@@ -91,6 +94,9 @@
     --fs-secondary-heading: var(--fs-800);
     --fs-nav: var(--fs-300);
     --fs-details-heading: var(--fs-500);
+
+    /* --decoration-size1: 56.5em;
+    --decoration-size2: 56.5em; */
   }
 }
 /** Root - End **/
@@ -329,44 +335,7 @@ a:where(:hover, :focus) {
 .cta {
   position: relative;
   overflow: hidden;
-}
-
-.cta::before,
-.cta::after {
-  --size: var(--decoration-cta-size);
-
-  content: "";
-  width: var(--size);
-  height: var(--size);
-  background-image: url(./../images/bg-tablet-pattern.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  opacity: 0.1;
-}
-
-.cta::before {
-  display: block;
-  top: 2em;
-  left: -24em;
-}
-
-.cta::after {
-  display: none;
-}
-
-@media (min-width: 50em) {
-  .cta::before {
-    display: block;
-    top: -2em;
-    left: 10em;
-  }
-
-  .cta::after {
-    display: block;
-    top: -20em;
-    right: -14em;
-  }
+  isolation: isolate;
 }
 
 .cta .even-columns {
@@ -410,6 +379,70 @@ p[data-width="100"] {
 
 p[data-opacity="opaque"] {
   opacity: 1;
+}
+
+/** General Styling - Decorations **/
+.decoration {
+  --size1: var(--decoration-size1);
+  --size2: var(--decoration-size2);
+
+  background-image: url(./../images/bg-tablet-pattern.svg),
+    url(./../images/bg-tablet-pattern.svg);
+  background-position: 5em -5em, 17em 40em;
+  background-size: var(--size1) var(--size1), var(--size2) var(--size2);
+  background-repeat: no-repeat, no-repeat;
+}
+
+@media (min-width: 50em) {
+  .decoration {
+    --size1: 40em;
+    --size2: 40em;
+
+    background-image: url(./../images/bg-tablet-pattern.svg),
+      url(./../images/bg-tablet-pattern.svg);
+    background-position: 55em -5em, -25em 70em;
+    background-size: var(--size1) var(--size1), var(--size2) var(--size2);
+    background-repeat: no-repeat, no-repeat;
+  }
+}
+
+.cta::before,
+.cta::after {
+  --size: var(--decoration-cta-size);
+
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  background-image: url(./../images/bg-tablet-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.cta::before {
+  display: block;
+  top: 2em;
+  left: -24em;
+}
+
+.cta::after {
+  display: none;
+}
+
+@media (min-width: 50em) {
+  .cta::before {
+    display: block;
+    top: -2em;
+    left: 10em;
+  }
+
+  .cta::after {
+    display: block;
+    top: -20em;
+    right: -14em;
+  }
 }
 
 /** General Styling - End **/
