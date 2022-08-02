@@ -3,6 +3,11 @@
     - Reset
     - General Styling
       - General Styling - Containers
+      - General Styling - Landing Section
+      - General Styling - Details Section
+      - General Styling - Call-to-Action Section
+      - General Styling - Typography
+      - General Styling - Decorations
     - Components
       - Components - Buttons
       - Components - Primary Header
@@ -28,7 +33,7 @@
   --clr-accent-200: hsl(13, 100%, 85%);
   --clr-accent-100: hsl(13, 100%, 96%);
 
-  --clr-neutral-100: hsl(0, 0%, 98%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-neutral-900: hsl(227, 12%, 61%);
 
   --ff-primary: "Be Vietnam Pro", Arial, sans-serif;
@@ -40,6 +45,8 @@
   --fw-bold: 700;
 
   --fs-base: 16px;
+  --fs-100: 0.6rem;
+  --fs-200: 0.7rem;
   --fs-300: 0.8125rem;
   --fs-400: 0.875rem;
   --fs-500: 0.9375rem;
@@ -52,7 +59,8 @@
   --fs-primary-heading: var(--fs-800);
   --fs-secondary-heading: var(--fs-700);
   --fs-body: var(--fs-400);
-  --ff-button: var(--fs-300);
+  --fs-button: var(--fs-300);
+  --fs-details-heading: var(--fs-200);
 
   --size-0: 0;
   --size-100: 0.25rem;
@@ -68,10 +76,15 @@
   --size-1100: 7rem;
 
   --container-padding: var(--size-500);
-  --column-spacing: var(--size-700);
+  --column-spacing: var(--size-300);
 
   --footer-form-height: 50px;
   --footer-form-button-width: 5.8em;
+
+  /* --decoration-size1: 56.5em; */
+  --decoration-size1: 28em;
+  --decoration-size2: 20em;
+  --decoration-cta-size: 28em;
 }
 
 @media (min-width: 50em) {
@@ -80,6 +93,10 @@
     --fs-primary-heading: var(--fs-900);
     --fs-secondary-heading: var(--fs-800);
     --fs-nav: var(--fs-300);
+    --fs-details-heading: var(--fs-500);
+
+    --decoration-size1: 40em;
+    --decoration-size2: 40em;
   }
 }
 /** Root - End **/
@@ -195,6 +212,10 @@ a:where(:hover, :focus) {
   margin-inline: auto;
 }
 
+.flow * + * {
+  margin-top: var(--flow-spacer, 3em);
+}
+
 .even-columns {
   display: grid;
   gap: var(--column-spacing);
@@ -207,6 +228,7 @@ a:where(:hover, :focus) {
   }
 }
 
+/** General Styling - Landing Section **/
 .landing .even-columns > div:nth-child(1) {
   grid-row: 2;
   grid-column: 1;
@@ -240,21 +262,13 @@ a:where(:hover, :focus) {
   }
 }
 
-.cta .even-columns {
-  grid-template-rows: repeat(2, auto);
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 50em) {
-  .cta .even-columns {
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-  }
-}
-
+/** General Styling - Details Section **/
 .details-section {
   counter-reset: h3;
+}
+
+.details-section .details-heading {
+  font-size: var(--fs-details-heading);
 }
 
 .details-section .details-heading::before {
@@ -272,11 +286,16 @@ a:where(:hover, :focus) {
   min-width: var(--counter-width);
 }
 
-.details-section .even-columns div:nth-child(2) p {
+.details-section .even-columns div:nth-child(1) p {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.details-section .even-columns div:nth-child(2) .details-text {
   margin-left: calc(var(--size-800) + var(--size-300) + 0.1rem);
 }
 
-@media (max-width: 50em) {
+@media (max-width: 49.9em) {
   .details-section .container {
     --horizontal-padding: 0;
   }
@@ -296,6 +315,10 @@ a:where(:hover, :focus) {
     background-color: var(--clr-accent-400);
   }
 
+  .details-section .even-columns div:nth-child(1) p {
+    margin-inline: auto;
+  }
+
   .details-section .details-heading {
     border-radius: 100vmax 0 0 100vmax;
     background-color: var(--clr-accent-100);
@@ -303,8 +326,119 @@ a:where(:hover, :focus) {
     padding-right: var(--size-500);
   }
 
-  .details-section .even-columns div:nth-child(2) p {
+  .details-section .even-columns div:nth-child(2) .details-text {
     margin-inline: var(--size-500);
+  }
+}
+
+/** General Styling - Call-to-Action Section **/
+.cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cta .even-columns {
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 50em) {
+  .cta .even-columns {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
+.cta p {
+  opacity: 1;
+  margin-inline: auto;
+}
+
+@media (min-width: 50em) {
+  .cta p {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/** General Styling - Typography **/
+p {
+  opacity: 0.7;
+  max-width: 32ch;
+}
+
+p[data-width="wide"] {
+  max-width: 48ch;
+}
+
+p[data-width="100"] {
+  max-width: 100%;
+}
+
+p[data-opacity="opaque"] {
+  opacity: 1;
+}
+
+/** General Styling - Decorations **/
+.decoration {
+  --size1: var(--decoration-size1);
+  --size2: var(--decoration-size2);
+
+  background-image: url(./../images/bg-tablet-pattern.svg),
+    url(./../images/bg-tablet-pattern.svg);
+  background-position: 5em -5em, 17em 40em;
+  background-size: var(--size1) var(--size1), var(--size2) var(--size2);
+  background-repeat: no-repeat, no-repeat;
+}
+
+@media (min-width: 50em) {
+  .decoration {
+    background-image: url(./../images/bg-tablet-pattern.svg),
+      url(./../images/bg-tablet-pattern.svg);
+    background-position: 55em -5em, -25em 65em;
+    background-size: var(--size1) var(--size1), var(--size2) var(--size2);
+    background-repeat: no-repeat, no-repeat;
+  }
+}
+
+.cta::before,
+.cta::after {
+  --size: var(--decoration-cta-size);
+
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  background-image: url(./../images/bg-tablet-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.cta::before {
+  display: block;
+  top: 2em;
+  left: -24em;
+}
+
+.cta::after {
+  display: none;
+}
+
+@media (min-width: 50em) {
+  .cta::before {
+    display: block;
+    top: -2em;
+    left: 10em;
+  }
+
+  .cta::after {
+    display: block;
+    top: -20em;
+    right: -14em;
   }
 }
 
@@ -617,6 +751,10 @@ a:where(:hover, :focus) {
   text-align: center;
 }
 
+.testimonial-content p {
+  margin-inline: auto;
+}
+
 /* .glide__arrow {
   color: var(--clr-accent-400);
   border-color: var(--clr-accent-400);
@@ -762,7 +900,7 @@ a:where(:hover, :focus) {
   font-size: var(--fs-body);
 }
 .fs-button {
-  font-size: var(--ff-button);
+  font-size: var(--fs-button);
 }
 
 /** Utility - Spacing **/
