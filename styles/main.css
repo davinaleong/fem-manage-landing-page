@@ -31,9 +31,10 @@
   --clr-accent-400: hsl(12, 88%, 59%);
   --clr-accent-300: hsl(13, 100%, 75%);
   --clr-accent-200: hsl(13, 100%, 85%);
-  --clr-accent-100: hsl(13, 100%, 96%);
+  --clr-accent-100: hsl(13, 100%, 98%);
 
   --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(0, 0%, 98%);
   --clr-neutral-900: hsl(227, 12%, 61%);
 
   --ff-primary: "Be Vietnam Pro", Arial, sans-serif;
@@ -745,7 +746,7 @@ p[data-opacity="opaque"] {
   --top-spacing: clamp(var(--size-700), 8vw, var(--size-800));
   --other-spacing: clamp(var(--size-400), 3vw, var(--size-700));
 
-  background-color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-200);
   padding: var(--top-spacing) var(--other-spacing) var(--other-spacing)
     var(--other-spacing);
   text-align: center;
