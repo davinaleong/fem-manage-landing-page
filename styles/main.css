@@ -76,6 +76,9 @@
 
   --footer-form-height: 50px;
   --footer-form-button-width: 5.8em;
+
+  --decoration-size: 56.5em;
+  --decoration-cta-size: 28em;
 }
 
 @media (min-width: 50em) {
@@ -306,6 +309,35 @@ a:where(:hover, :focus) {
 }
 
 /** General Styling - Call-to-Action Section **/
+.cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before,
+.cta::after {
+  --size: var(--decoration-cta-size);
+
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  background-image: url(./../images/bg-tablet-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  opacity: 0.1;
+}
+
+.cta::before {
+  top: -20em;
+  right: -14em;
+}
+
+.cta::after {
+  top: -2em;
+  left: 10em;
+}
+
 .cta .even-columns {
   grid-template-rows: repeat(2, auto);
   grid-template-columns: 1fr;
@@ -640,6 +672,10 @@ p[data-opacity="opaque"] {
   padding: var(--top-spacing) var(--other-spacing) var(--other-spacing)
     var(--other-spacing);
   text-align: center;
+}
+
+.testimonial-content p {
+  margin-inline: auto;
 }
 
 /* .glide__arrow {
