@@ -32,7 +32,7 @@
   --clr-accent-200: hsl(13, 100%, 85%);
   --clr-accent-100: hsl(13, 100%, 96%);
 
-  --clr-neutral-100: hsl(0, 0%, 98%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-neutral-900: hsl(227, 12%, 61%);
 
   --ff-primary: "Be Vietnam Pro", Arial, sans-serif;
@@ -329,13 +329,27 @@ a:where(:hover, :focus) {
 }
 
 .cta::before {
-  top: -20em;
-  right: -14em;
+  display: block;
+  top: 2em;
+  left: -24em;
 }
 
 .cta::after {
-  top: -2em;
-  left: 10em;
+  display: none;
+}
+
+@media (min-width: 50em) {
+  .cta::before {
+    display: block;
+    top: -2em;
+    left: 10em;
+  }
+
+  .cta::after {
+    display: block;
+    top: -20em;
+    right: -14em;
+  }
 }
 
 .cta .even-columns {
@@ -348,6 +362,18 @@ a:where(:hover, :focus) {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+  }
+}
+
+.cta p {
+  opacity: 1;
+  margin-inline: auto;
+}
+
+@media (min-width: 50em) {
+  .cta p {
+    margin-left: 0;
+    margin-right: auto;
   }
 }
 
