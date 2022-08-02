@@ -95,8 +95,8 @@
     --fs-nav: var(--fs-300);
     --fs-details-heading: var(--fs-500);
 
-    /* --decoration-size1: 56.5em;
-    --decoration-size2: 56.5em; */
+    --decoration-size1: 40em;
+    --decoration-size2: 40em;
   }
 }
 /** Root - End **/
@@ -395,12 +395,9 @@ p[data-opacity="opaque"] {
 
 @media (min-width: 50em) {
   .decoration {
-    --size1: 40em;
-    --size2: 40em;
-
     background-image: url(./../images/bg-tablet-pattern.svg),
       url(./../images/bg-tablet-pattern.svg);
-    background-position: 55em -5em, -25em 70em;
+    background-position: 55em -5em, -25em 65em;
     background-size: var(--size1) var(--size1), var(--size2) var(--size2);
     background-repeat: no-repeat, no-repeat;
   }
